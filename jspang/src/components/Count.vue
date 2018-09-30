@@ -1,0 +1,36 @@
+<template>
+  <div>
+    <h2>{{msg}}</h2><hr/>
+    <h3>{{count}}</h3>
+    <p>
+      <button @click="$store.commit('add')">+</button>
+      <button @click="$store.commit('reduce')">-</button>
+    </p>
+    <p>
+      <button @click="jia">+</button>
+      <button @click="jian">-</button>
+    </p>
+  </div>
+</template>
+
+<script>
+import store from '@/vuex/store';
+import {mapState} from 'vuex';
+export default {
+  data () {
+    return {
+      msg:'hello vuex'
+    }
+  },
+  computed:mapState (['count']),
+  methods: {
+    jia (){
+      store.state.count++
+    },
+    jian(){
+      store.state.count--
+    }
+  },
+  store
+}
+</script>
